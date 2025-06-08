@@ -2,6 +2,7 @@
 
 int main() {
     // Declaração das variáveis para a primeira carta
+    char país;
     char estado1;
     char codigo1[4];
     char cidade1[50];
@@ -11,7 +12,9 @@ int main() {
     int pontosTuristicos1;
 
     // Leitura dos dados da primeira carta
-    printf("Super trunfo em C\n");
+    printf("\n Super trunfo em C\n");
+    printf("Digite o País da carta 1: \n");
+    scanf("%c", &país);  
     printf("Digite o estado da carta 1 (A-H): \n");
     scanf(" %c", &estado1);
     printf("Digite o código da carta 1 : \n");
@@ -39,6 +42,8 @@ int main() {
     
 
     // Leitura dos dados da segunda carta
+    printf("Digite o País da carta 2: \n");
+    scanf("%c", &país);  
     printf("Digite o estado da carta 2 (A-H): \n");
     scanf(" %c", &estado2);
     printf("Digite o código da carta 2 : \n");
@@ -61,6 +66,97 @@ int main() {
     float densidade_populacional2 = (float) populacao2 / area2;
     float pib_per_capita2 = (pib2 * 1000000000) / populacao2;
     
+
+// Escolha dos atributos
+int atributo1, atributo2;
+printf("\nEscolha o primeiro atributo para comparação:\n");
+printf("1. População\n2. Área\n3. PIB\n4. Pontos Turísticos\n5. PIB per capita\n6. Densidade Populacional\n");
+printf("Digite o número do atributo: ");
+scanf("%d", &atributo1);
+
+printf("\nEscolha o segundo atributo para comparação (diferente do primeiro):\n");
+switch (atributo1) {
+    case 1:
+        printf("2. Área\n3. PIB\n4. Pontos Turísticos\n5. PIB per capita\n6. Densidade Populacional\n");
+        break;
+    case 2:
+        printf("1. População\n3. PIB\n4. Pontos Turísticos\n5. PIB per capita\n6. Densidade Populacional\n");
+        break;
+    case 3:
+        printf("1. População\n2. Área\n4. Pontos Turísticos\n5. PIB per capita\n6. Densidade Populacional\n");
+        break;
+    case 4:
+        printf("1. População\n2. Área\n3. PIB\n5. PIB per capita\n6. Densidade Populacional\n");
+        break;
+    case 5:
+        printf("1. População\n2. Área\n3. PIB\n4. Pontos Turísticos\n6. Densidade Populacional\n");
+        break;
+    case 6:
+        printf("1. População\n2. Área\n3. PIB\n4. Pontos Turísticos\n5. PIB per capita\n");
+        break;
+}
+printf("Digite o número do atributo: ");
+scanf("%d", &atributo2);
+
+atributo2 = (atributo2 == atributo1) ? (atributo1 == 1) ? 2 : 1 : atributo2;
+
+// Obter os valores dos atributos
+float valor1Carta1, valor1Carta2, valor2Carta1, valor2Carta2;
+
+switch (atributo1) {
+    case 1:
+        valor1Carta1 = populacao1;
+        valor1Carta2 = populacao2;
+        break;
+    case 2:
+        valor1Carta1 = area1;
+        valor1Carta2 = area2;
+        break;
+    case 3:
+        valor1Carta1 = pib1;
+        valor1Carta2 = pib2;
+        break;
+    case 4:
+        valor1Carta1 = pontosTuristicos1;
+        valor1Carta2 = pontosTuristicos2;
+        break;
+    case 5:
+        valor1Carta1 = pib_per_capita1; // Corrigido aqui
+        valor1Carta2 = pib_per_capita2; // Corrigido aqui
+        break;
+    case 6:
+        valor1Carta1 = densidade_populacional1; // Corrigido aqui
+        valor1Carta2 = densidade_populacional2; // Corrigido aqui
+        break;
+}
+
+switch (atributo2) {
+    case 1:
+        valor2Carta1 = populacao1;
+        valor2Carta2 = populacao2;
+        break;
+    case 2:
+        valor2Carta1 = area1;
+        valor2Carta2 = area2;
+        break;
+    case 3:
+        valor2Carta1 = pib1;
+        valor2Carta2 = pib2;
+        break;
+    case 4:
+        valor2Carta1 = pontosTuristicos1;
+        valor2Carta2 = pontosTuristicos2;
+        break;
+    case 5:
+        valor2Carta1 = pib_per_capita1; // Corrigido aqui
+        valor2Carta2 = pib_per_capita2; // Corrigido aqui
+        break;
+    case 6:
+        valor2Carta1 = densidade_populacional1; // Corrigido aqui
+        valor2Carta2 = densidade_populacional2; // Corrigido aqui
+        break;
+}
+
 
 int opcao;
     printf("Escolha o atributo para comparar as cartas:\n");
